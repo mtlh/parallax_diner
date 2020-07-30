@@ -168,7 +168,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	display: table;
 	width: 100%;
 	padding: 0;
-	background: url(../img/intro-bg.jpg) center center no-repeat;
+	background: url('../img/intro-bg.jpg') center center no-repeat;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -196,6 +196,42 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 	margin-top: 150px;
 }
 header .intro-text {
+	padding-top: 200px;
+	padding-bottom: 50px;
+	text-align: center;
+}
+.intro2 {
+	display: table;
+	width: 100%;
+	padding: 0;
+	background: url('../img/map_smaller_diner.JPG') center center no-repeat;
+	background-color: #e5e5e5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+.intro2 .overlay {
+	background: rgba(0,0,0,0.4);
+}
+.intro2 h1 {
+	font-family: 'Rochester', cursive;
+	color: #fff;
+	font-size: 10em;
+	font-weight: 400;
+	margin-top: 0;
+}
+.intro2 span {
+	color: #a7c44c;
+	font-weight: 600;
+}
+.intro2 p {
+	color: #fff;
+	font-size: 24px;
+	font-weight: 400;
+	margin-top: 150px;
+}
+header .intro2-text {
 	padding-top: 200px;
 	padding-bottom: 50px;
 	text-align: center;
@@ -238,7 +274,7 @@ header .intro-text {
 	padding: 80px 0;
 }
 #about .about-img {
-	background: #444 url(../img/gallery-bg.jpg) center center no-repeat;
+	background: #444 url('../img/gallery-bg.jpg') center center no-repeat;
 	background-size: cover;
 	height: 570px;
 }
@@ -325,7 +361,7 @@ header .intro-text {
 	color: #777;
 }
 #contact .section-title {
-	margin-top: 60px;
+	margin-top: 10px;
 	margin-bottom: 40px;
 }
 #contact form {
@@ -406,7 +442,7 @@ color: #999;
 }
 /* Footer Section*/
 #footer {
-	background: #262626;
+	background: #333;
 	padding: 40px 0 20px 0;
 }
 #footer .social {
