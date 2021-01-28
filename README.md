@@ -1,3 +1,3 @@
 # parallax_diner
 
-Can view site at http://matthewtlharvey.pythonanywhere.com/
+Can view website at http://matthewtlharvey.pythonanywhere.com/
