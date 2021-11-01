@@ -78,36 +78,6 @@
     </div>
   </div>
 </header>
-<!-- Order Section -->
-<div id="order" class="text-center" style="width:'100vh'; padding-top: 50px; padding-bottom: 50px;">
-  <div class="container">
-    <div class="section-title">
-      <h2>Order Here</h2>
-    </div>
-    <div class="row" style="border: 2px solid grey;">
-      <h3 style="padding-bottom: 10px;">Select Items</h3>
-      <div class="col-xs-6 col-sm-2">
-        <button type="button" style="width: 131px; height: 46px;">Specials</button>
-      </div>
-      <div class="col-xs-6 col-sm-2">
-        <button type="button" style="width: 131px; height: 46px;">Starters</button>
-      </div>
-      <div class="col-xs-6 col-sm-2">
-        <button type="button" style="width: 131px; height: 46px;">Mains</button>
-      </div>
-      <div class="col-xs-6 col-sm-2">
-        <button type="button" style="width: 131px; height: 46px;">Desserts</button>
-      </div>
-      <div class="col-xs-6 col-sm-2">
-        <button type="button" style="width: 131px; height: 46px;">Drinks</button>
-      </div>
-      <div class="col-xs-6 col-sm-2">
-        <h4 style="padding-top: 0px;">My Order</h4>
-      </div>
-    </div>
-    </div>
-  </div>
-</div>
 <script>
   function loadFile(filePath) {
     var result = null;
@@ -129,10 +99,123 @@
     element = element.split(";");
     newarr.push(element);
   });
-
-  console.log(newarr);
+  newarr = newarr.splice(5);  
   
 </script>
+<!-- Order Section -->
+<div id="order" class="text-center" style="width:'100vh'; padding-top: 50px; padding-bottom: 50px;">
+  <div class="container">
+    <div class="section-title">
+      <h2>Order Here</h2>
+    </div>
+    <div id="ordersection" class="row" style="border: 2px solid grey;">
+      <h3 style="padding-bottom: 10px;">Select Items</h3>
+      <div class="col-xs-6 col-sm-2">
+        <button type="button" style="width: 131px; height: 46px;" onclick="popoutoptions(0, newarr)">Specials</button>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <button type="button" style="width: 131px; height: 46px;" onclick="popoutoptions(1, newarr)">Starters</button>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <button type="button" style="width: 131px; height: 46px;" onclick="popoutoptions(2, newarr)">Mains</button>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <button type="button" style="width: 131px; height: 46px;" onclick="popoutoptions(3, newarr)">Desserts</button>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <button type="button" style="width: 131px; height: 46px;" onclick="popoutoptions(4, newarr)">Drinks</button>
+      </div>
+      <div class="col-xs-6 col-sm-2">
+        <button type="button" style="width: 131px; height: 46px;" onclick="popoutoptions(5, newarr)">My Order</button>
+      </div>
+      <div id="container1" class="container" style="padding-top: 80px; padding-bottom: 0px;">
+        <h2 id="mainname">Specials</h2>
+      </div>
+      <script>
+        var makemenuhold = document.createElement("div");
+        makemenuhold.id = "menuholder";
+        container1.appendChild(makemenuhold);
+
+        popoutoptions(0, newarr);
+
+        function popoutoptions(sectionnum, newarr) {
+          sectionnum = sectionnum.toString();
+          if (sectionnum == "0") {
+            mainname.innerHTML = "Specials";
+            showitems(sectionnum, newarr);
+          }
+          if (sectionnum == "1") {
+            mainname.innerHTML = "Starters";
+            showitems(sectionnum, newarr);
+          }
+
+          if (sectionnum == "2") {
+            mainname.innerHTML = "Mains";
+            showitems(sectionnum, newarr);
+          }
+          if (sectionnum == "3") {
+            mainname.innerHTML = "Desserts";
+            showitems(sectionnum, newarr);
+          }
+          if (sectionnum == "4") {
+            mainname.innerHTML = "Drinks";
+            showitems(sectionnum, newarr);
+          }
+          if (sectionnum == "5") {
+            mainname.innerHTML = "My Order";
+            showorder(sectionnum, newarr);
+          }
+
+          function showitems(sectionnum, newarr) {
+            var content = newarr[sectionnum];
+
+            const myNode = document.getElementById("menuholder");
+            while (myNode.firstChild) {
+              myNode.removeChild(myNode.lastChild);
+            }
+
+            content.forEach(item => {
+              
+              item = item.split(",")
+
+              var makemenu = document.createElement("div");
+              makemenu.classList.add('menu-item');
+              makemenu.id = "eachmenu";
+              makemenuhold.appendChild(makemenu);
+
+              var brgap = document.createElement("br");
+              makemenu.appendChild(brgap);
+
+              var menuitemname = document.createElement("div");
+              menuitemname.classList.add('menu-item-name');
+              makemenu.appendChild(menuitemname);
+              var h4wrap = document.createElement("h5");
+              h4wrap.innerHTML = item[0];
+              menuitemname.appendChild(h4wrap);
+
+              var menuitemprice = document.createElement("div");
+              menuitemprice.classList.add('menu-item-price');
+              makemenu.appendChild(menuitemprice);
+              var h4wrap2 = document.createElement("h5");
+              h4wrap2.innerHTML = item[1];
+              menuitemprice.appendChild(h4wrap2);
+            });
+          }
+
+          function showorder(sectionnum, newarr) {
+            const myNode = document.getElementById("menuholder");
+            while (myNode.firstChild) {
+              myNode.removeChild(myNode.lastChild);
+            }
+          }
+
+
+        }
+      </script>
+    </div>
+    </div>
+  </div>
+</div>
 <!-- Gallery Section -->
 <div id="gallery" style="width: '100vh';">
   <div class="container-fluid">

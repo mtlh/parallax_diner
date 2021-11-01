@@ -12,13 +12,13 @@ Chicken & Mushroom Pasta, £20, 35, 35;
 Beef Lasagne, £14, 21, 21;
 Gormet Fried Chicken, £19, 15, 15
 _
+Chocolate Mud Cake, £8.80, 28, 28;
+Bourbon-Pecan Tart, £9.90, 23, 23;
+Texas Sheet Cake, £11, 11, 11;
+Vanilla Cheesecake, £12, 20, 20
+_
 Tea, £3.20, 40, 40;
 Coffee, £2.90, 35, 35;
 Wine, £4.40, 20, 20;
 Soft Drinks, £2, 60, 60;
 Water, £0, 0, 0
-_
-Chocolate Mud Cake, £8.80, 28, 28;
-Bourbon-Pecan Tart, £9.90, 23, 23;
-Texas Sheet Cake, £11, 11, 11;
-Vanilla Cheesecake, £12, 20, 20
