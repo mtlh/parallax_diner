@@ -199,6 +199,12 @@
               var h4wrap2 = document.createElement("h5");
               h4wrap2.innerHTML = item[1];
               menuitemprice.appendChild(h4wrap2);
+
+              var ongoingcount = 0
+              var addbutton = document.createElement("button");
+              addbutton.onclick = function () {ongoingcount+=1; addbutton.innerHTML = "ADDED " + ongoingcount + " ✓";};
+              addbutton.innerHTML = "ADD TO ORDER"
+              makemenu.appendChild(addbutton);
             });
           }
 
@@ -207,6 +213,8 @@
             while (myNode.firstChild) {
               myNode.removeChild(myNode.lastChild);
             }
+
+            
           }
 
 
