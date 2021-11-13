@@ -1,3 +1,3 @@
 # parallax_diner
 
-Website viewable at http://matthewtlharvey.pythonanywhere.com/
+Website viewable at https://matthew-harvey.github.io/diner/
