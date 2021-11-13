@@ -131,6 +131,7 @@
       <div id="container1" class="container" style="padding-top: 80px; padding-bottom: 0px;">
         <h2 id="mainname">Specials</h2>
       </div>
+      <br></br>
       <script>
         var makemenuhold = document.createElement("div");
         makemenuhold.id = "menuholder";
@@ -201,10 +202,25 @@
               menuitemprice.appendChild(h4wrap2);
 
               var ongoingcount = 0
-              var addbutton = document.createElement("button");
-              addbutton.onclick = function () {ongoingcount+=1; addbutton.innerHTML = "ADDED " + ongoingcount + " ✓";};
-              addbutton.innerHTML = "ADD TO ORDER"
-              makemenu.appendChild(addbutton);
+              Object.keys(localStorage).forEach(function(key){
+                var keyhold = localStorage.getItem(key);
+                if (item[0] == key) {
+                  var itemsplit = keyhold.split("£");
+                  ongoingcount = parseInt(itemsplit[0]);
+                }
+              });
+              if (ongoingcount == 0) {
+                var addbutton = document.createElement("button");
+                addbutton.onclick = function () {ongoingcount+=1; addbutton.innerHTML = "ADDED " + ongoingcount + " ✓"; localStorage.setItem(item[0], ongoingcount.toString()+item[1])};
+                addbutton.innerHTML = "ADD TO ORDER"
+                makemenu.appendChild(addbutton);
+              }
+              else {
+                var addbutton = document.createElement("button");
+                addbutton.onclick = function () {ongoingcount+=1; addbutton.innerHTML = "ADDED " + ongoingcount + " ✓"; localStorage.setItem(item[0], ongoingcount.toString()+item[1])};
+                addbutton.innerHTML = "ADDED " + ongoingcount + " ✓";
+                makemenu.appendChild(addbutton);
+              }
             });
           }
 
@@ -214,10 +230,148 @@
               myNode.removeChild(myNode.lastChild);
             }
 
-            
+            var makemenu = document.createElement("div");
+            makemenu.classList.add('menu-item');
+            makemenu.classList.add('row');
+            makemenu.id = "eachmenu";
+            makemenuhold.appendChild(makemenu);
+
+            var brgap = document.createElement("br");
+            makemenu.appendChild(brgap);
+
+            var namecolumn = document.createElement("div");
+            namecolumn.classList.add('col-lg-4');
+            namecolumn.classList.add('col-sm-12');
+            namecolumn.classList.add('col-md-12');
+            namecolumn.id = "eachmenu";
+            makemenuhold.appendChild(namecolumn);
+
+            var pricecolumn = document.createElement("div");
+            pricecolumn.classList.add('col-lg-4');
+            pricecolumn.classList.add('col-sm-12');
+            pricecolumn.classList.add('col-md-12');
+            pricecolumn.id = "eachmenu";
+            makemenuhold.appendChild(pricecolumn);
+
+            var quantcolumn = document.createElement("div");
+            quantcolumn.classList.add('col-lg-4');
+            quantcolumn.classList.add('col-sm-12');
+            quantcolumn.classList.add('col-md-12');
+            quantcolumn.id = "eachmenu";
+            makemenuhold.appendChild(quantcolumn);
+
+            var menuitemname = document.createElement("div");
+            menuitemname.classList.add('menu-item-name');
+            namecolumn.appendChild(menuitemname);
+            var h4wrap = document.createElement("h4");
+            menuitemname.appendChild(h4wrap);
+            var underline1 = document.createElement("u");
+            underline1.innerHTML = "NAME";
+            h4wrap.appendChild(underline1);
+
+            var menuitemprice = document.createElement("div");
+            menuitemprice.classList.add('menu-item-price');
+            pricecolumn.appendChild(menuitemprice);
+            var h4wrap2 = document.createElement("h4");
+            menuitemprice.appendChild(h4wrap2);
+            var underline2 = document.createElement("u");
+            underline2.innerHTML = "PRICE";
+            h4wrap2.appendChild(underline2);
+
+            var menuitemquant = document.createElement("div");
+            menuitemquant.classList.add('menu-item-quant');
+            quantcolumn.appendChild(menuitemquant);
+            var h4wrap3 = document.createElement("h4");
+            menuitemquant.appendChild(h4wrap3);
+            var underline3 = document.createElement("u");
+            underline3.innerHTML = "QUANTITY";
+            h4wrap3.appendChild(underline3);
+
+            var totalcost = 0;
+
+            Object.keys(localStorage).forEach(function(key){
+                var item = localStorage.getItem(key);
+                var itemsplit = item.split("£");
+
+                totalcost += parseFloat(itemsplit[1]);
+                var itemprice = "£" + itemsplit[1];
+                var itemquant = itemsplit[0];
+
+                var makemenu = document.createElement("div");
+                makemenu.classList.add('menu-item');
+                makemenu.classList.add('row');
+                makemenu.id = "eachmenu";
+                makemenuhold.appendChild(makemenu);
+
+                var brgap = document.createElement("br");
+                makemenu.appendChild(brgap);
+
+                var namecolumn = document.createElement("div");
+                namecolumn.classList.add('col-lg-4');
+                namecolumn.classList.add('col-sm-12');
+                namecolumn.classList.add('col-md-12');
+                namecolumn.id = "eachmenu";
+                makemenuhold.appendChild(namecolumn);
+
+                var pricecolumn = document.createElement("div");
+                pricecolumn.classList.add('col-lg-4');
+                pricecolumn.classList.add('col-sm-12');
+                pricecolumn.classList.add('col-md-12');
+                pricecolumn.id = "eachmenu";
+                makemenuhold.appendChild(pricecolumn);
+
+                var quantcolumn = document.createElement("div");
+                quantcolumn.classList.add('col-lg-4');
+                quantcolumn.classList.add('col-sm-12');
+                quantcolumn.classList.add('col-md-12');
+                quantcolumn.id = "eachmenu";
+                makemenuhold.appendChild(quantcolumn);
+
+                var menuitemname = document.createElement("div");
+                menuitemname.classList.add('menu-item-name');
+                namecolumn.appendChild(menuitemname);
+                var h4wrap = document.createElement("h5");
+                h4wrap.innerHTML = key;
+                menuitemname.appendChild(h4wrap);
+
+                var menuitemprice = document.createElement("div");
+                menuitemprice.classList.add('menu-item-price');
+                pricecolumn.appendChild(menuitemprice);
+                var h4wrap2 = document.createElement("h5");
+                h4wrap2.innerHTML = itemprice;
+                menuitemprice.appendChild(h4wrap2);
+
+                var menuitemquant = document.createElement("div");
+                menuitemquant.classList.add('menu-item-quant');
+                quantcolumn.appendChild(menuitemquant);
+                var h4wrap = document.createElement("h5");
+                h4wrap.innerHTML = itemquant;
+                menuitemquant.appendChild(h4wrap);
+            });
+
+            var totalmenu = document.createElement("div");
+            totalmenu.classList.add('menu-item');
+            totalmenu.classList.add('row');
+            totalmenu.id = "totalmenu";
+            makemenuhold.appendChild(totalmenu);
+
+            var brgap2 = document.createElement("br");
+            totalmenu.appendChild(brgap2);
+
+            var brgap2 = document.createElement("br");
+            totalmenu.appendChild(brgap2);
+
+            var brgap2 = document.createElement("br");
+            totalmenu.appendChild(brgap2);
+
+            var totaltext = document.createElement("h4");
+            totaltext.innerHTML = "TOTAL";
+            totalmenu.appendChild(totaltext);
+
+            var totaltext = document.createElement("h4");
+            totaltext.innerHTML = "£" + totalcost.toFixed(2);
+            totalmenu.appendChild(totaltext);
           }
-
-
         }
       </script>
     </div>
